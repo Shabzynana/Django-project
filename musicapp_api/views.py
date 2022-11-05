@@ -13,18 +13,14 @@ class ArtistApiView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request, *args, **kwargs):
-        '''
-        List all the todo items for given requested user
-        '''
+       
         artist = Artist.objects.all().values()
         serializer = ArtistSerializer(artist, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
     def post(self, request, *args, **kwargs):
-        '''
-        Create the Todo with given todo data
-        '''
+       
         data = {
             'first_name': request.data.get('first_name'),
             'last_name': request.data.get('last_name'),
@@ -45,19 +41,14 @@ class SongApiView(APIView):
     # add permission to check if user is authenticated
     permission_classes = [permissions.IsAuthenticated]
 
-    # 1. List all
     def get(self, request, *args, **kwargs):
-        '''
-        List all the todo items for given requested user
-        '''
+        
         song = Song.objects.all()
         serializer = SongSerializer(song, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request, *args, **kwargs):
-        '''
-        Create the Todo with given todo data
-        '''
+       
         data = {
             'title': request.data.get('title'),
             'date_released': request.data.get('date_released'),
@@ -74,7 +65,6 @@ class SongApiView(APIView):
 
 class SongIdApiView(APIView):
 
-    # add permission to check if user is authenticated
     permission_classes = [permissions.IsAuthenticated]
 
     def get_object(self, song_id):
