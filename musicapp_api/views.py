@@ -79,7 +79,7 @@ class SongIdApiView(APIView):
         song = self.get_object(song_id)
         if not song:
             return Response(
-                {"res": "Object with todo id does not exists"},
+                {"res": "Object with song id does not exists"},
                 status=status.HTTP_400_BAD_REQUEST
             )
 
@@ -92,7 +92,7 @@ class SongIdApiView(APIView):
         song = self.get_object(song_id)
         if not song:
             return Response(
-                {"res": "Object with todo id does not exists"},
+                {"res": "Object with song id does not exists"},
                 status=status.HTTP_400_BAD_REQUEST
             )
         data = {
